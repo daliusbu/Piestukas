@@ -22,7 +22,7 @@ class TestController extends Controller
      */
  public function testAction(){
      return $this->render('Test/test.html.twig', [
-        'something'=> 'Something',
+        'something'=> 'Nothing',
      ]);
  }
 }
