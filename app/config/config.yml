@@ -45,10 +45,10 @@ doctrine:
         dbname: '%database_name%'
         user: '%database_user%'
         password: '%database_password%'
-        charset: UTF8
+        charset: UTF8MB4
         default_table_options:
-            charset: utf8
-            collation: utf8_lithuanian_ci
+            charset: utf8mb4
+            collation: utf8mb4_lithuanian_ci
         options:
             1002: "SET NAMES 'UTF8MB4' COLLATE 'utf8mb4_lithuanian_ci'"
 
