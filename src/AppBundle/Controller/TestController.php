@@ -34,4 +34,32 @@ class TestController extends Controller
         'something'=> 'Product id is '.$id ,
      ]);
  }
+
+    /**
+     * @return mixed
+     * @Route("/test", name="test")
+     */
+    public function testAction(){
+        $em=$this->getDoctrine()->getManager();
+        $product = new Product();
+        $product->setSkaicius(20);
+        $product->setText('dvidesimt');
+        $em->persist($product);
+        $em->flush();
+
+       $product1 = $this->getDoctrine()
+           ->getRepository(Product::class)
+           ->find(1);
+       if (!$product1) {
+           throw $this->createNotFoundException(
+               'No product found for id 1'
+           );
+       }
+
+
+
+        return $this->render('Test/test.html.twig', [
+            'something'=> 'Product id is ',
+        ]);
+    }
 }
