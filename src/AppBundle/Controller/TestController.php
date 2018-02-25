@@ -55,7 +55,7 @@ class TestController extends Controller
                $message ='No product found for id 1';
 
        }else{
-           $message = $product1->getSkaicius();
+           $message = $product1->getText();
        }
 
 
