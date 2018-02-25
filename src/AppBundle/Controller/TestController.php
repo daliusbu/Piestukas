@@ -54,12 +54,14 @@ class TestController extends Controller
            throw $this->createNotFoundException(
                'No product found for id 1'
            );
+       }else{
+           $message = $product1->getText();
        }
 
 
 
         return $this->render('Test/test.html.twig', [
-            'something'=> 'Product id is ',
+            'something'=> 'Product text is '.$message,
         ]);
     }
 }
