@@ -1,6 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<h1>Just testing {{ something }}</h1>
+    <h1>Just testing {{ something }}</h1>
 
+    Product id's:
+    {% for product in products %}
+        {{ product.text ~ ", " }}
+    {% endfor %}
 {% endblock %}

@@ -49,19 +49,22 @@ class TestController extends Controller
 
        $product1 = $this->getDoctrine()
            ->getRepository(Product::class)
-           ->find(10);
+           ->findAll();
        if (!$product1) {
 
                $message ='No product found for id 1';
 
-       }else{
-           $message = $product1->getText();
+       }else {
+           foreach ($product1 as $prod) {
+               $message = $prod->getId();
+           }
        }
 
 
 
         return $this->render('Test/test.html.twig', [
             'something'=> 'Product skaicius is '.$message,
+            'products' => $product1,
         ]);
     }
 }
