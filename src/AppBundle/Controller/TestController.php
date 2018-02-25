@@ -42,14 +42,14 @@ class TestController extends Controller
     public function testAction(){
         $em=$this->getDoctrine()->getManager();
         $product = new Product();
-        $product->setSkaicius(11);
-        $product->setText('simtas');
+        $product->setSkaicius(15);
+        $product->setText('belekas');
         $em->persist($product);
         $em->flush();
 
        $product1 = $this->getDoctrine()
            ->getRepository(Product::class)
-           ->find(5);
+           ->find(2);
        if (!$product1) {
 
                $message ='No product found for id 1';
