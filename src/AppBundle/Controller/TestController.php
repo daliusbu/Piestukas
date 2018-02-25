@@ -49,11 +49,11 @@ class TestController extends Controller
 
        $product1 = $this->getDoctrine()
            ->getRepository(Product::class)
-           ->find(7);
+           ->find(5);
        if (!$product1) {
-           throw $this->createNotFoundException(
-               'No product found for id 1'
-           );
+
+               $message ='No product found for id 1'
+
        }else{
            $message = $product1->getSkaicius();
        }
