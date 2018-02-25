@@ -52,7 +52,7 @@ class TestController extends Controller
            ->find(5);
        if (!$product1) {
 
-               $message ='No product found for id 1'
+               $message ='No product found for id 1';
 
        }else{
            $message = $product1->getSkaicius();
