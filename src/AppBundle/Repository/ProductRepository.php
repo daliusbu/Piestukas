@@ -10,4 +10,15 @@ namespace AppBundle\Repository;
  */
 class ProductRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    public function findByText($text){
+        $qb = $this->_em->createQueryBuilder();
+        $qb->select ('u')
+            ->from('AppBundle\Entity\Product', 'u')
+            ->where('u.text = :text')
+            ->setParameter('text', $text);
+
+        return $qb->getQuery()->getResult();
+    }
+
 }
