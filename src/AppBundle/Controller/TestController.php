@@ -49,7 +49,7 @@ class TestController extends Controller
 
        $product1 = $this->getDoctrine()
            ->getRepository(Product::class)
-           ->find(1);
+           ->find(2);
        if (!$product1) {
 
                $message ='No product found for id 1';
