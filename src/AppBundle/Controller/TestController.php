@@ -17,29 +17,11 @@ use Symfony\Component\HttpFoundation\Request;;
 class TestController extends Controller
 {
 
-//    /**
-//     * @return mixed
-//     * @Route("/test", name="test")
-//     */
-// public function testAction(){
-//     $em=$this->getDoctrine()->getManager();
-//     $product = new Product();
-//     $product->setSkaicius(20);
-//     $product->setText('dvidesimt');
-//     $em->persist($product);
-//     $em->flush();
-//
-//     $id = $product->getId();
-//     return $this->render('Test/test.html.twig', [
-//        'something'=> 'Product id is '.$id ,
-//     ]);
-// }
-
     /**
      * @return mixed
-     * @Route("/test", name="test")
+     * @Route("/test/{slug}", name="test")
      */
-    public function testAction(){
+    public function testAction($slug){
         $em=$this->getDoctrine()->getManager();
         $product = new Product();
         $product->setSkaicius(23);
@@ -60,11 +42,10 @@ class TestController extends Controller
            }
        }
 
-
-
         return $this->render('Test/test.html.twig', [
             'something'=> 'Product skaicius is '.$message,
             'products' => $product1,
+            'slugas'=>$slug,
         ]);
     }
 }
