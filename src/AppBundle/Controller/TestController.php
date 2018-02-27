@@ -25,15 +25,15 @@ class TestController extends Controller
     public function testAction($slug){
         $em=$this->getDoctrine()->getManager();
         $product = new Product();
-        $product->setSkaicius(56);
-        $product->setText('penkiasdsimt sesi');
+        $product->setSkaicius($slug);
+        $product->setText('auto from slug');
         $em->persist($product);
         $em->flush();
 
 
        $product1 = $this->getDoctrine()
            ->getRepository(Product::class)
-           ->findByText('belekas');
+           ->findBySkaicius($slug);
        if (!$product1) {
 
                $message ='No product found for id 1';

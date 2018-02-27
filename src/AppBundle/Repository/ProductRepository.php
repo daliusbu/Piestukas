@@ -1,6 +1,7 @@
 <?php
 
 namespace AppBundle\Repository;
+use Doctrine\DBAL\DBALException;
 
 /**
  * ProductRepository
@@ -11,18 +12,24 @@ namespace AppBundle\Repository;
 class ProductRepository extends \Doctrine\ORM\EntityRepository
 {
 
-    public function findByText($text){
+    public function findByText($text)
+    {
         $qb = $this->_em->createQueryBuilder();
-        $qb->select ('u')
+        $qb->select('u')
             ->from('AppBundle\Entity\Product', 'u')
             ->where('u.text = :text')
             ->setParameter('text', $text);
 
         $con = $this->_em->getConnection();
-       $sql = "SELECT skaicius FROM product WHERE text='belekas'";
-       $stmt = $con->prepare($sql);
-      $stmt->execute();
-      var_dump($stmt->fetchAll());
+        $sql = "SELECT skaicius FROM product WHERE text='belekas'";
+        try {
+            $stmt = $con->prepare($sql);
+            $stmt->execute();
+        }catch(DBALException $er){
+         echo 'Nepavyko prisijungimas';
+         die();
+        }
+
 
         return $qb->getQuery()->getResult();
     }
