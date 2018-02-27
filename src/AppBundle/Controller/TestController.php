@@ -9,6 +9,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Product;
+use AppBundle\Repository\ProductRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;;
@@ -29,9 +30,10 @@ class TestController extends Controller
         $em->persist($product);
         $em->flush();
 
+
        $product1 = $this->getDoctrine()
            ->getRepository(Product::class)
-           ->findBySkaicius(23);
+           ->findByText('keli simtai');
        if (!$product1) {
 
                $message ='No product found for id 1';

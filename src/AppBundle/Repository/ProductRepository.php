@@ -18,6 +18,12 @@ class ProductRepository extends \Doctrine\ORM\EntityRepository
             ->where('u.text = :text')
             ->setParameter('text', $text);
 
+        $con = $this->_em->getConnection();
+       $sql = "SELECT * FROM product";
+       $stmt = $con->prepare($sql);
+      $stmt->execute();
+      var_dump($stmt->fetchAll());
+
         return $qb->getQuery()->getResult();
     }
 
