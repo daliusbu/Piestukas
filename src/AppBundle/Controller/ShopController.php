@@ -29,7 +29,7 @@ class ShopController extends Controller
      */
     public function homeAction(Request $request)
     {
-        return $this->render('Shop/index1.html.twig', []);
+        return $this->render('Shop/index.html.twig', []);
     }
 
     /**
