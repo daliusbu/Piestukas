@@ -19,7 +19,7 @@ class ProductRepository extends \Doctrine\ORM\EntityRepository
             ->setParameter('text', $text);
 
         $con = $this->_em->getConnection();
-       $sql = "SELECT * FROM product";
+       $sql = "SELECT skaicius FROM product WHERE text='belekas'";
        $stmt = $con->prepare($sql);
       $stmt->execute();
       var_dump($stmt->fetchAll());

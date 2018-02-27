@@ -25,22 +25,23 @@ class TestController extends Controller
     public function testAction($slug){
         $em=$this->getDoctrine()->getManager();
         $product = new Product();
-        $product->setSkaicius(23);
-        $product->setText('keli simtai');
+        $product->setSkaicius(56);
+        $product->setText('penkiasdsimt sesi');
         $em->persist($product);
         $em->flush();
 
 
        $product1 = $this->getDoctrine()
            ->getRepository(Product::class)
-           ->findByText('keli simtai');
+           ->findByText('belekas');
        if (!$product1) {
 
                $message ='No product found for id 1';
 
        }else {
+           $message = "";
            foreach ($product1 as $prod) {
-               $message = $prod->getText();
+               $message .= $prod->getId().", ";
            }
        }
 
