@@ -33,29 +33,6 @@ class ShopController extends Controller
         return $this->render('Shop/index.html.twig', []);
     }
 
-    /**
-     * @Route("/registration", name="registration")
-     */
-    public function registrationAction(Request $request)
-    {
-        $formCustomer = $this->createForm(UserType::class);
-
-        $formCustomer->handleRequest($request);
-
-        if ($formCustomer->isSubmitted() && $formCustomer->isValid()) {
-
-            $em = $this->getDoctrine()->getManager();
-            $customer = $formCustomer->getData();
-            $em->persist($customer);
-            $em->flush();
-            return $this->redirectToRoute('registration');
-        }
-
-        return $this->render('Shop/regForm.html.twig', [
-            'form' => $formCustomer->createView()
-        ]);
-    }
-
     private function sendMail($body)
     {
         $mail = \Swift_Message::newInstance()
