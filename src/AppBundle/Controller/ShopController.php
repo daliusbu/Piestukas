@@ -10,6 +10,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Form\Type\CustomerFormType;
 use AppBundle\Form\Type\OrderFormType;
+use AppBundle\Form\Type\UserType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -23,7 +24,7 @@ class ShopController extends Controller
 {
 
     /**
-     * @Route("/shop", name="shop")
+     * @Route("/shop", name="home")
      * @return \Symfony\Component\HttpFoundation\Response
      *
      */
@@ -37,7 +38,7 @@ class ShopController extends Controller
      */
     public function registrationAction(Request $request)
     {
-        $formCustomer = $this->createForm(CustomerFormType::class);
+        $formCustomer = $this->createForm(UserType::class);
 
         $formCustomer->handleRequest($request);
 
@@ -51,7 +52,7 @@ class ShopController extends Controller
         }
 
         return $this->render('Shop/regForm.html.twig', [
-            'formNewCust' => $formCustomer->createView()
+            'form' => $formCustomer->createView()
         ]);
     }
 
