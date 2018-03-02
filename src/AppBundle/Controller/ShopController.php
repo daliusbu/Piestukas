@@ -24,7 +24,7 @@ class ShopController extends Controller
 {
 
     /**
-     * @Route("/shop", name="home")
+     * @Route("/", name="home")
      * @return \Symfony\Component\HttpFoundation\Response
      *
      */

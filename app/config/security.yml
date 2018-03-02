@@ -20,7 +20,7 @@ security:
 
             logout:
                 path: /logout
-                target: /shop
+                target: /
 
     access_control:
         - { path: ^/confOrder, roles:ROLE_USER }
