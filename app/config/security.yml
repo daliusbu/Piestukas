@@ -23,7 +23,7 @@ security:
                 target: /
 
     access_control:
-        - { path: ^/confOrder, roles:ROLE_USER }
+        - { path: ^/confOrder, roles:[ROLE_USER, ROLE_ADMIN] }
 
     encoders:
         AppBundle\Entity\User: bcrypt
