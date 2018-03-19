@@ -12,7 +12,8 @@ use AppBundle\Entity\Product;
 use AppBundle\Repository\ProductRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;;
+use Symfony\Component\HttpFoundation\Request;
+use Con
 
 
 class TestController extends Controller

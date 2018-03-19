@@ -21,7 +21,6 @@ use Symfony\Component\Validator\Constraints\Email;
 
 class AdminController extends Controller
 {
-
     /**
      * @Route("/orders", name="orders")
      */
@@ -59,8 +58,6 @@ class AdminController extends Controller
         ]);
     }
 
-
-
     /**
      * @Route("/users", name="users")
      */
@@ -78,34 +75,5 @@ class AdminController extends Controller
             'users' => $users
         ]);
     }
-
-//
-//    /**
-//     * @Route("/confOrder", name="confOrder")
-//     */
-//    public function confOrderAction(Request $request)
-//    {
-//        $orderQnt = $request->get('orderQnt');
-//
-//        $formOrder = $this->createForm(OrderFormType::class);
-//
-//        $formOrder->handleRequest($request);
-//
-//        if ($formOrder->isSubmitted() && $formOrder->isValid()) {
-//
-//            $em = $this->getDoctrine()->getManager();
-//            $order = $formOrder->getData();
-//            $em->persist($order);
-//            $em->flush();
-//            return $this->redirectToRoute('home');
-//        }
-//
-//        return $this->render('Shop/Order/orderConf.html.twig', [
-//            'orderQnt'=>$orderQnt,
-//            'formOrder' => $formOrder->createView(),
-//        ]);
-//
-//    }
-
 
 }
